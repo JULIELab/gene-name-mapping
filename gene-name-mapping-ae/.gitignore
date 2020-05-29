@@ -1,0 +1,11 @@
+/geneSynonymIndex*
+/geneContextIndex*
+/geneSpellingIndex*
+/data
+/confusion.txt
+/*log
+/mappingresult.genelist
+/ign-train-mention-training.tsv
+/mappings.txt
+/.DS_Store
+/target

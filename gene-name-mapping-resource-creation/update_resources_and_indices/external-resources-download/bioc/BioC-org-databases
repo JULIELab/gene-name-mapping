@@ -1,0 +1,15 @@
+org.Ag.eg.db	Genome wide annotation for Anopheles
+org.Bt.eg.db	Genome wide annotation for Bovine
+org.Ce.eg.db	Genome wide annotation for Worm
+org.Cf.eg.db	Genome wide annotation for Canine
+org.Dm.eg.db	Genome wide annotation for Fly
+org.Dr.eg.db	Genome wide annotation for Zebrafish
+org.EcK12.eg.db	Genome wide annotation for E coli strain K12
+org.Gg.eg.db	Genome wide annotation for Chicken
+org.Hs.eg.db	Genome wide annotation for Human
+org.Mm.eg.db	Genome wide annotation for Mouse
+org.Mmu.eg.db	Genome wide annotation for Rhesus
+org.Pt.eg.db	Genome wide annotation for Chimp
+org.Rn.eg.db	Genome wide annotation for Rat
+org.Ss.eg.db	Genome wide annotation for Pig
+org.Xl.eg.db	Genome wide annotation for Xenopus

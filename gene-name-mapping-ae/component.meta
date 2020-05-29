@@ -1,0 +1,18 @@
+{
+    "categories": [
+        "ae"
+    ],
+    "description": "Mapper to find database entries of gene entity mentions",
+    "descriptors": [ {
+                                "category": "ae",
+                                "location": "de.jules.ae.genemapping.desc.genemapping-ae.xml"
+     }],
+    "exposable": true,
+    "group": "general",
+    "maven-artifact": {
+        "artifactId": "gene-name-mapping-ae",
+        "groupId": "de.julielab",
+        "version": "1.0.0-SNAPSHOT"
+    },
+    "name": "Gene Mapping"
+}
