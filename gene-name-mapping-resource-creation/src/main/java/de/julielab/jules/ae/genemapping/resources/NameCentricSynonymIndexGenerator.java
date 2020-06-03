@@ -194,10 +194,10 @@ public class NameCentricSynonymIndexGenerator {
 
             } finally {
                 try {
-                    log.info("Waiting for running threads to terminate within 5 minutes.");
-                    executorService.awaitTermination(5, TimeUnit.MINUTES);
                     log.info("Shutting down executor.");
                     executorService.shutdown();
+                    log.info("Waiting for running threads to terminate within 5 minutes.");
+                    executorService.awaitTermination(5, TimeUnit.MINUTES);
                 } catch (InterruptedException e) {
                     log.warn("Waiting for running threads to finish has been interrupted. Shutting down the executor service now.");
                     executorService.shutdownNow();
@@ -206,10 +206,6 @@ public class NameCentricSynonymIndexGenerator {
             }
             log.info("Committing all index additions.");
             iw.commit();
-            // Minimize the index. This will probably not really make the index much smaller since we do not
-            // have any deleted documents but at least we won't have so many segments. This step is optional.
-            log.info("Merging the index to one segment.");
-            iw.forceMerge(1);
         }
     }
 

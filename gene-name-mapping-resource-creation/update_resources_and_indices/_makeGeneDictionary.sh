@@ -137,6 +137,7 @@ if [ ! -f "$GENE_INFO_ORG_FILTERED" ]; then
         # Build the set of organisms
         while(( getline line<orgfile) > 0)
             orgs[line] = 1;
+        print "Got", length(orgs), "filter organisms" > "/dev/stderr"
         # Build the set of genes with an accepted gene Track and RefSeq status
         print "Reading the NCBI Gene records status file for excluding items with unwanted status (replaced, deprecated)" > "/dev/stderr"
         while(( getline line<statusfile) > 0) {
@@ -431,7 +432,7 @@ if [ ! -f gene.dict.eg ]; then
 	cat entrez_gene.dict.eg uniprot.dict.eg.prio bt2eg.dict.prio bioc.dict.eg.prio > t
 	sort --parallel=$CONCURRENCY_LEVEL -u t > gene.dict.eg;
 	# echo "Running the TermNormalizer on the current gene.dict.eg file to create the first version of gene.dict.variants.norm.eg"
-    java -cp .:gene-name-mapping-resource-creation.jar de.julielab.jules.ae.genemapper.utils.norm.TermNormalizer gene.dict.eg gene.dict.variants.norm.eg;
+    java -cp .:gene-name-mapping-resource-creation.jar de.julielab.jules.ae.genemapping.utils.norm.TermNormalizer gene.dict.eg gene.dict.variants.norm.eg;
 	sort --parallel=$CONCURRENCY_LEVEL -t$'\t' -k3 -n gene.dict.eg > t
 	sort --parallel=$CONCURRENCY_LEVEL -t$'\t' -k3 -n gene.dict.variants.norm.eg > t2
 	# Sort by priority. The next step will be to eliminate duplicates. Only the first occurrence of a name will

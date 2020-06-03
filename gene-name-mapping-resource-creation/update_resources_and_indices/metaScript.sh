@@ -30,7 +30,7 @@ GENE_IDS_TO_INCLUDE=no_specific_genes_to_include
 # set of IDs that are possibly further refined by organism and time stamp. This is only done for experiments
 # or when you know very specificly which gene IDs you need. If you just want to create normal resources for
 # GeNo, leave the value blank (i.e. the line should look like this: GENE_ID_LIST=)
-GENE_ID_LIST=asthma-gene-ids.txt
+GENE_ID_LIST=
 #GENE_ID_LIST="gene-ids-in-entrezGeneLexicon_index.lst"
 
 if [ -z "$GENE_IDS_TO_INCLUDE" ]; then

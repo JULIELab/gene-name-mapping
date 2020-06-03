@@ -4,7 +4,6 @@ import de.julielab.java.utilities.spanutils.OffsetMap;
 import de.julielab.java.utilities.spanutils.OffsetSet;
 import de.julielab.jcore.types.*;
 import de.julielab.jcore.utility.JCoReTools;
-import de.julielab.jules.ae.genemapping.CompoundPhraseResolver;
 import de.julielab.jules.ae.genemapping.GeneMapping;
 import de.julielab.jules.ae.genemapping.GeneMappingAnnotator;
 import de.julielab.jules.ae.genemapping.GeneMappingConfiguration;
@@ -32,11 +31,9 @@ public class GeneDocumentFactory {
     private final static Logger log = LoggerFactory.getLogger(GeneDocumentFactory.class);
     private static GeneDocumentFactory instance;
     private final GeneMapping geneMapping;
-    private final CompoundPhraseResolver complexPhraseResolver;
 
-    private GeneDocumentFactory(GeneMapping mapper) throws GeneMappingException {
+    private GeneDocumentFactory(GeneMapping mapper) {
         GeneMappingConfiguration configuration = mapper.getConfiguration();
-        complexPhraseResolver = new CompoundPhraseResolver(mapper.getConfiguration());
         geneMapping = mapper;
     }
 
@@ -159,8 +156,6 @@ public class GeneDocumentFactory {
 
         // Finally, set the genes
         setGenesFromJCas(jCas, doc, entityMappingTypes, contextFun);
-
-        complexPhraseResolver.resolve(doc, false);
 
         return doc;
     }

@@ -423,24 +423,9 @@ public class GeneDocument {
     }
 
     public void setSpecies(SpeciesCandidates species) {
-        filterSpeciesMentions(species.getTitleCandidates().entrySet().iterator());
-        filterSpeciesMentions(species.getTextCandidates().entrySet().iterator());
         this.species = species;
     }
 
-    private void filterSpeciesMentions(Iterator<Entry<Range<Integer>, SpeciesMention>> textSpeciesIt) {
-        if (chunks == null || chunks.isEmpty())
-            log.warn("To filter organism mentions that should be removed for gene species assignments, chunking is required. Thus, the chunks must be set before the species mentions. At this moment, there are no chunks set and species filtering might be ineffective.");
-        while (textSpeciesIt.hasNext()) {
-            Entry<Range<Integer>, SpeciesMention> e = textSpeciesIt.next();
-            final NavigableMap<Range<Integer>, String> overlapping = chunks.getOverlapping(e.getKey());
-            StringBuilder sb = new StringBuilder();
-            for (Range<Integer> chunk : overlapping.keySet())
-                sb.append(getCoveredText(chunk)).append(" ");
-            if (sb.toString().toLowerCase().matches(".*(one|two|bi|three|tri)(-|\\s)hybrid.*"))
-                textSpeciesIt.remove();
-        }
-    }
 
     /**
      * This will try to map genes to species using a multi-stage procedure as

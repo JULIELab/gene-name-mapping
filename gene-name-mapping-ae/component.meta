@@ -5,7 +5,7 @@
     "description": "Mapper to find database entries of gene entity mentions",
     "descriptors": [ {
                                 "category": "ae",
-                                "location": "de.jules.ae.genemapping.desc.genemapping-ae.xml"
+                                "location": "de.jules.ae.genemapping.desc.genemapping-ae"
      }],
     "exposable": true,
     "group": "general",
