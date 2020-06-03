@@ -4,7 +4,7 @@
     <parent>
         <groupId>de.julielab</groupId>
         <artifactId>gene-name-mapping</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>gene-name-mapping-resource-creation</artifactId>
