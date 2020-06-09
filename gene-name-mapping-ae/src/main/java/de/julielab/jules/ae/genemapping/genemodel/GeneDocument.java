@@ -41,7 +41,7 @@ public class GeneDocument {
      * matches this exact pattern: Upper case characters followed by a lower case
      * 's'.
      */
-    private static final Matcher pluralMatcher = Pattern.compile("[A-Z]+s").matcher("");
+    private final Matcher pluralMatcher = Pattern.compile("[A-Z]+s").matcher("");
     private OffsetMap<Acronym> acronyms;
     private OffsetMap<AcronymLongform> acronymLongforms;
     private OffsetMap<String> chunks;
@@ -255,6 +255,12 @@ public class GeneDocument {
         });
     }
 
+    public void setGenes(Collection<GeneMention> genes) {
+        if (this.allGenes == null)
+            this.allGenes = new ArrayList<>(genes.size());
+        setGenes(genes.stream());
+    }
+
     public void addGene(GeneMention gene) {
         if (this.allGenes == null)
             this.allGenes = new ArrayList<>();
@@ -263,12 +269,6 @@ public class GeneDocument {
         gene.setNormalizer(termNormalizer);
         if (gene.getTagger() == GeneTagger.GOLD)
             putGene(gene);
-    }
-
-    public void setGenes(Collection<GeneMention> genes) {
-        if (this.allGenes == null)
-            this.allGenes = new ArrayList<>(genes.size());
-        setGenes(genes.stream());
     }
 
     public Iterable<GeneMention> getGenesIterable() {
@@ -385,7 +385,8 @@ public class GeneDocument {
         this.posTags = new OffsetMap<>();
         posTags.map(pos -> {
             if (pos.getTag().equals("NN") && documentText != null && pos.getEnd() < documentText.length()) {
-                pluralMatcher.reset(getCoveredText(pos));
+                String coveredText = getCoveredText(pos);
+                pluralMatcher.reset(coveredText);
 
                 if (pluralMatcher.matches())
                     pos.setTag("NNS");
