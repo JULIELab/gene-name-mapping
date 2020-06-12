@@ -75,7 +75,7 @@ public class GeneMappingAnnotator extends JCasAnnotator_ImplBase {
 
 
         // set window size
-        contextTokenWindowSize = useTokenContext ? Integer.valueOf(Optional.ofNullable((String)aContext.getConfigParameterValue(CONTEXT_WINDOW_SIZE)).orElse("50")) : 0;
+        contextTokenWindowSize = useTokenContext ? Optional.ofNullable((Integer)aContext.getConfigParameterValue(CONTEXT_WINDOW_SIZE)).orElse(50) : 0;
 
         try {
             GeneDocumentFactory.initialize(mapper);
