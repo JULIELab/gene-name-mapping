@@ -4,8 +4,8 @@
     <parent>
         <groupId>de.julielab</groupId>
         <artifactId>gene-name-mapping</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
-        <relativePath>..</relativePath>
+        <version>1.0.1</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>gene-name-mapping-resource-creation</artifactId>
     <name>Gene Name Mapping Resource Creation</name>
@@ -14,8 +14,9 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
