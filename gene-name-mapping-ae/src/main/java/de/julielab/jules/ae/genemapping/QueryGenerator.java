@@ -49,7 +49,7 @@ public class QueryGenerator {
         String[] tokens = searchString.split(" ");
 
         Builder disjunctiveQuery = new BooleanQuery.Builder();
-        for (int i = 0; i < tokens.length; i++) {
+        for (int i = 0; i < tokens.length && i < 1024; i++) {
             Query q = new TermQuery(new Term(field, tokens[i]));
             disjunctiveQuery.add(q, BooleanClause.Occur.SHOULD);
         }

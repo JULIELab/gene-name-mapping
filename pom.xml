@@ -17,7 +17,7 @@
 		<module>gene-name-mapping-ae</module>
 		<module>gene-name-mapping-resource-creation</module>
 	</modules>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

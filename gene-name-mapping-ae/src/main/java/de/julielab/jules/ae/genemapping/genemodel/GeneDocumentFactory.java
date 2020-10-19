@@ -76,7 +76,7 @@ public class GeneDocumentFactory {
         Title documentTitle = null;
         final Collection<Title> titles = JCasUtil.select(jCas, Title.class);
         if (titles != null) {
-            final Optional<Title> titleOpt = titles.stream().filter(t -> t.getTitleType().equals("document")).findAny();
+            final Optional<Title> titleOpt = titles.stream().filter(t -> t.getTitleType() != null).filter(t -> t.getTitleType().equals("document")).findAny();
             if (titleOpt.isPresent()) {
                 documentTitle = titleOpt.get();
                 doc.setDocumentTitle(documentTitle.getCoveredText());
