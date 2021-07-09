@@ -8,7 +8,9 @@ The code found here shares its foundations with GeNo [1] but has been
 
 To let the mapping code run, a [UIMA](https://uima.apache.org/) pipeline is required in which this component can be embedded. The simplest way would be to use [JCoRe](https://github.com/JULIELab/jcore-base) components to form the pipeline. The descriptor for the gene mapping component is found at `gene-name-mapping-ae/src/main/resources/de/jules/ae/genemapping/desc/genemapping-ae.xml`.
 
-To build the resources from scratch, run the `gene-name-mapping-resource-creation/update_resources_and_indices/metaScript.sh` script. Note, however, that a number of downloaded source resources are required. To get those, run `gene-name-mapping-resource-creation/update_resources_and_indices/downloadExternalResources.sh`. Optional: To set the path to specific resource files, make the appropriate changes to `gene-name-mapping-resource-creation/update_resources_and_indices/setCustomResourcePaths.sh` which is called from within `metaScripts.sh`.
+To build the project yourself (required for resource creation), install Maven >= 3.x and execute `mvn clean package` in the repository root.
+
+To build the resources from scratch, run the `gene-name-mapping-resource-creation/update_resources_and_indices/metaScript.sh` script. Note, however, that a number of downloaded source resources are required. To get those, run `gene-name-mapping-resource-creation/update_resources_and_indices/downloadExternalResources.sh`. Optional: To set the path to specific resource files, make the appropriate changes to `gene-name-mapping-resource-creation/update_resources_and_indices/setCustomResourcePaths.sh` which is called from within `metaScript.sh`.
 
 
 

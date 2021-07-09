@@ -39,8 +39,6 @@ cd $DOWNLOAD_DIR
 echo $RESOURCES | xargs -n 1 -P 8 wget -q
 
 echo "Downloading of external databases finished."
-gzip http://www.geneontology.org/ontology/gene_ontology.obo
+gzip gene_ontology.obo
 
-echo "Now fetching BioConductor databases and building EC Number mapping files"
 cd ..
-./_downloadBioCDBsAndCreateIDMappings.sh

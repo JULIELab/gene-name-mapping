@@ -3,11 +3,11 @@
 GENE2XML=gene2xmlExecutables/linux64.gene2xml
 # This is the directory where all external resources have been stored.
 # Must be absolute or relative to the position where metaScript.sh is
-# calles.
-DOWNLOAD_DIR=/data/data_resources/biology/gene-mapper-resources
+# called.
+DOWNLOAD_DIR=external-resources-download/download
 # This is the top script to call for JCoRe Gene Mapper resource creation. 
 # specify directory of resources and indices here:
-resourcesDir=/data/data_resources/gene-mapper/reduced/human
+resourcesDir=/data/erik/gene-mapping/human
 # This is either:
 # - A list of NCBI taxonomy IDs to restrict the created gene resources to.
 # - A non-existing file that will then be automatically created with ALL
