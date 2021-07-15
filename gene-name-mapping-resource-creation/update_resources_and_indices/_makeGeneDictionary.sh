@@ -20,6 +20,8 @@
 # The sole purpose of all files for this script is to deliver as many names and synonyms for
 # NCBI Gene and UniProt IDs as possible for maximum coverage of gene names.
 
+set -e
+
 DEFAULT_DOWNLOAD_DIR=$1
 
 if [ -z "$GENE_INFO" ]; then

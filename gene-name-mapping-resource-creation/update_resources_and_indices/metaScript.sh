@@ -1,5 +1,7 @@
 #!/bin/bash
-# TODO: Document
+# The executable to be used to parse the NCBI data in ASN.1 format.
+# Can be downloaded from NCBI, we just use this one that works in
+# the docker container.
 GENE2XML=gene2xmlExecutables/linux64.gene2xml
 # This is the directory where all external resources have been stored.
 # Must be absolute or relative to the position where metaScript.sh is
@@ -150,12 +152,12 @@ if [[ 0 -ne "$?" ]]; then
 	exit 1
 fi
 
-echo "Run class SpellCheckerIndexGenerator for creation of spelling indixes";
-java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.SpellCheckerIndexGenerator $res $synIndex;
-if [[ 0 -ne "$?" ]]; then
-	echo "Error occured, exiting".
-	exit 1
-fi
+#echo "Run class SpellCheckerIndexGenerator for creation of spelling indexes";
+#java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.SpellCheckerIndexGenerator $res $synIndex;
+#if [[ 0 -ne "$?" ]]; then
+#	echo "Error occured, exiting".
+#	exit 1
+#fi
 
 echo "Remove jar";
 rm gene-name-mapping-resource-creation.jar;
