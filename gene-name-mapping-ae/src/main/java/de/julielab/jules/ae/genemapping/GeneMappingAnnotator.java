@@ -234,7 +234,7 @@ public class GeneMappingAnnotator extends JCasAnnotator_ImplBase {
             for (SynHit hit : resultEntries) {
                 // organism dependent hits
                 GeneResourceEntry resourceEntry = new GeneResourceEntry(aJCas);
-                resourceEntry.setSource("WRITE SOURCE INTO INDEX");
+                resourceEntry.setSource("NCBI Gene");
                 String geneId = hit.getId();
 
                 resourceEntry.setEntryId(geneId);
@@ -252,10 +252,10 @@ public class GeneMappingAnnotator extends JCasAnnotator_ImplBase {
             }
 
             EntityMention entity = (EntityMention) gm.getOriginalMappedObject();
-            FSArray resourceEntryList = entity.getResourceEntryList();
-            if (null == resourceEntryList && newResourceEntries.size() > 0)
-                resourceEntryList = new FSArray(aJCas, newResourceEntries.size());
-            FSArray newEntryList = JCoReTools.addToFSArray(resourceEntryList, newResourceEntries);
+//            FSArray resourceEntryList = entity.getResourceEntryList();
+//            if (null == resourceEntryList && newResourceEntries.size() > 0)
+//                resourceEntryList = new FSArray(aJCas, newResourceEntries.size());
+            FSArray newEntryList = JCoReTools.addToFSArray(null, newResourceEntries);
             entity.setResourceEntryList(newEntryList);
         }
 

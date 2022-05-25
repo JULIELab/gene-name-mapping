@@ -98,7 +98,7 @@ public class GeneDocumentFactory {
         // Set PoS tags
         List<PosTag> tags = new ArrayList<>();
         for (Token token : jCas.<Token>getAnnotationIndex(Token.type)) {
-            if (token.getPosTag().size() > 0) {
+            if (token.getPosTag() != null && token.getPosTag().size() > 0) {
                 final POSTag uimaPosTag = token.getPosTag(0);
                 final PosTag posTag = new PosTag(uimaPosTag.getValue(), Range.between(uimaPosTag.getBegin(), uimaPosTag.getEnd()));
                 tags.add(posTag);

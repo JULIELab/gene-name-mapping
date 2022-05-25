@@ -116,7 +116,7 @@ echo "Run script _makeGeneDictionary.sh to create dictionaries|biothesauri";
 echo "Command: bash _makeGeneDictionary.sh $DOWNLOAD_DIR $res $ORGANISM_LIST $GENE_INFO_ORG_FILTERED $GENE_META_CACHING_DIR $GENE2XML $GENE_IDS_TO_INCLUDE $GENE_ID_LIST"
 bash _makeGeneDictionary.sh $DOWNLOAD_DIR $res $ORGANISM_LIST $GENE_INFO_ORG_FILTERED $GENE_META_CACHING_DIR $GENE2XML $GENE_IDS_TO_INCLUDE $GENE_ID_LIST;
 if [[ 0 -ne "$?" ]]; then
-	echo "Error occured, exiting".
+	echo "Error occurred, exiting".
 	exit 1
 fi
 
@@ -124,7 +124,7 @@ echo "Run script makeSemanticContext.sh to create semantic context resources";
 echo "Command: bash makeSemanticContext.sh $DOWNLOAD_DIR $res $ORGANISM_LIST $GENE_INFO_ORG_FILTERED $GENE_META_CACHING_DIR $GENE2XML"
 bash _makeSemanticContext.sh $DOWNLOAD_DIR $res $ORGANISM_LIST $GENE_INFO_ORG_FILTERED $GENE_META_CACHING_DIR $GENE2XML;
 if [[ 0 -ne "$?" ]]; then
-	echo "Error occured, exiting".
+	echo "Error occurred, exiting".
 	exit 1
 fi
 
@@ -133,14 +133,14 @@ echo "Run class SynonymIndexGenerator for creation of gene-synonym-index";
 echo "java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.NameCentricSynonymIndexGenerator $res $GENE_INFO_ORG_FILTERED $synIndex"
 java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.NameCentricSynonymIndexGenerator $res $GENE_INFO_ORG_FILTERED $synIndex;
 if [[ 0 -ne "$?" ]]; then
-	echo "Error occured, exiting".
+	echo "Error occurred, exiting".
 	exit 1
 fi
 #echo "Run class ContextIndexGenerator for creation of gene-context-index";
 #echo "java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.ContextIndexGenerator $res $conIndex"
 #java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.ContextIndexGenerator $res $conIndex;
 #if [[ 0 -ne "$?" ]]; then
-#	echo "Error occured, exiting".
+#	echo "Error occurred, exiting".
 #	exit 1
 #fi
 
@@ -148,7 +148,7 @@ echo "Run class SynonymDisambiguationIndexGenerator for creation of gene informa
 echo "java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.SynonymDisambiguationIndexGenerator $res $conIndex"
 java -cp gene-name-mapping-resource-creation.jar:. de.julielab.jules.ae.genemapping.resources.SynonymDisambiguationIndexGenerator $res $conIndex;
 if [[ 0 -ne "$?" ]]; then
-	echo "Error occured, exiting".
+	echo "Error occurred, exiting".
 	exit 1
 fi
 
